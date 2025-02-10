@@ -2,10 +2,6 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
-app.get('/', (req, res) => {
-    res.send('Hello Node.js with Express!');
-});
-
 app.listen(8080, () => {
     console.log('Server is running on port 8080');
 });
@@ -22,3 +18,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', (req, res) => {
     res.render('index', { title: 'Welcome to My Site' });  // 'views/index.ejs' 템플릿을 렌더링
 });
+
+// `/about` 관련 라우트 불러오기
+const aboutRoutes = require('./routes/about');
+app.use('/about', aboutRoutes);  // '/about' 하위의 라우트들 적용
+
