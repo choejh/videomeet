@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>  <!-- EJS로 전달된 title 변수 -->
+    <link rel="stylesheet" href="/styles.css"> <!-- CSS 파일 링크 -->
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">홈</a></li>
+                <li><a href="/about">소개</a></li>
+                <li><a href="/contact">연락처</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Section -->
+    <main>
+        <h1><%= title %></h1>
+        <p>이 페이지는 간단한 예제 페이지입니다.</p>
+        <p>노드.js와 Express로 만든 웹사이트입니다.</p>
+        <button onclick="alert('버튼 클릭!')">클릭해보세요!</button>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Video Meet. All rights reserved.</p>
+    </footer>
+</body>
+</html>
