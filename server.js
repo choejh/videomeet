@@ -23,3 +23,8 @@ app.get('/', (req, res) => {
 const aboutRoutes = require('./routes/about');
 app.use('/about', aboutRoutes);  // '/about' 하위의 라우트들 적용
 
+
+// `/chat` 관련 라우트 불러오기
+const chatRoutes = require('./routes/chat');
+app.use('/chat', chatRoutes);  // '/chat' 하위의 라우트들 적용
+
