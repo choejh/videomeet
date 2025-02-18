@@ -4,12 +4,13 @@ var isInitiator;
 
 window.room = prompt("Enter room name:");
 
-var socket = io.connect();
+var socket = io.connect('http://localhost:8070');
 
 if (room !== "") {
   console.log('Message from client: Asking to join room ' + room);
   socket.emit('create or join', room);
 }
+console.log('pass here');
 
 socket.on('created', function(room, clientId) {
   isInitiator = true;

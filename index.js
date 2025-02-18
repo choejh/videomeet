@@ -17,7 +17,8 @@ var server = http.createServer(function(req, res) {
 var io = socketIO(server, {
   cors: {
     origin: "http://localhost:8080",  // 클라이언트의 포트(웹 서버 포트)
-    methods: ["GET", "POST"]
+    methods: ["GET", "POST"],
+    credentials: true  // 쿠키를 사용하려면 필요
   }
 });
 

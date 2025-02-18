@@ -2,6 +2,9 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
+// Socket.IO 클라이언트 라이브러리 임포트
+const socketIOClient = require('socket.io-client');
+
 app.listen(8080, () => {
     console.log('Server is running on port 8080');
 });
@@ -28,3 +31,17 @@ app.use('/about', aboutRoutes);  // '/about' 하위의 라우트들 적용
 const chatRoutes = require('./routes/chat');
 app.use('/chat', chatRoutes);  // '/chat' 하위의 라우트들 적용
 
+// Socket.IO 클라이언트 연결
+const socket = socketIOClient("http://localhost:8070", {
+  withCredentials: true  // 쿠키를 사용하는 경우
+});
+
+// 연결이 성공했을 때
+socket.on("connect", () => {
+  console.log("Connected to the socket server");
+});
+
+// 서버로부터 메시지 받기
+socket.on("message", (data) => {
+  console.log("Message from server:", data);
+});
